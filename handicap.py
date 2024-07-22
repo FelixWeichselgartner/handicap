@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-from login import username, pccaddie, pccaddie_club
 
-def login_and_get_handicap(username, password):
+
+def login_and_get_handicap(username, password, pccaddie_club):
     # Create a session to maintain the login session
     session = requests.Session()
 
@@ -53,7 +53,8 @@ def login_and_get_handicap(username, password):
 
 def main():
     # Example usage
-    handicap_score = login_and_get_handicap(username, pccaddie)
+    from login import username, pccaddie, pccaddie_club
+    handicap_score = login_and_get_handicap(username, pccaddie, pccaddie_club)
     if handicap_score:
         print("Current Handicap Score:", handicap_score)
 
